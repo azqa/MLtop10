@@ -1,6 +1,7 @@
 # git clone https://github.com/zelandiya/RAKE-tutorial
 import rake
 import operator
+from nltk.stem import *
 
 STOPPATH = 'SmartStoplist.txt'
 
@@ -11,6 +12,12 @@ def get_keywords_of_single_abstract(abstract):
     phrase_list = rake.generate_candidate_keywords(sentence_list, stopword_pattern)
     word_scores = rake.calculate_word_scores(phrase_list)
     keyword_candidates = rake.generate_candidate_keyword_scores(phrase_list, word_scores)
-    sorted_keywords = sorted(keyword_candidates.iteritems(), key=operator.itemgetter(1), reverse=True)
+
+    keywords = keyword_candidates.iteritems()
+    keywords = list(keywords)
+    stemmer = PorterStemmer()
+    keywords = [(' '.join(stemmer.stem(w) for w in k.split(' ')), score) for k, score in keywords]
+
+    sorted_keywords = sorted(keywords, key=operator.itemgetter(1), reverse=True)
     total_keywords = len(sorted_keywords)
     return [k[0] for k in sorted_keywords[0:total_keywords / 3]]
