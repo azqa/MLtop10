@@ -37,7 +37,7 @@ def maybe_pickle_abstracts(force=False):
         all_abstracts = [cut_abstracts[v][k] for v in VERSIONS for k in cut_abstracts[v]]
         try:
             print 'Dilling {0}'.format(set_filename)
-            dill.dump(cut_abstracts, open(set_filename, 'wb'))
+            dill.dump(all_abstracts, open(set_filename, 'wb'))
         except Exception as e:
             print('Unable to save data to', set_filename, ':', e)
     return all_abstracts

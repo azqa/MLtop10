@@ -28,6 +28,7 @@ def maybe_pickle_raw_abstracts(force=False):
 
 def maybe_pickle_abstracts(force=False):
     set_filename = '{0}.dill'.format(FILE_CUT)
+    print set_filename
     if os.path.exists(set_filename) and not force:
         print '{0} already present - Loading dill.'.format(set_filename)
         all_abstracts = dill.load(open(set_filename, 'rb'))
@@ -37,7 +38,7 @@ def maybe_pickle_abstracts(force=False):
         all_abstracts = [cut_abstracts[v][k] for v in VERSIONS for k in cut_abstracts[v]]
         try:
             print 'Dilling {0}'.format(set_filename)
-            dill.dump(cut_abstracts, open(set_filename, 'wb'))
+            dill.dump(all_abstracts, open(set_filename, 'wb'))
         except Exception as e:
             print('Unable to save data to', set_filename, ':', e)
     return all_abstracts
