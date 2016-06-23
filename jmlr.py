@@ -4,8 +4,6 @@ import urllib2
 from collections import defaultdict
 from urlparse import urljoin
 from bs4 import BeautifulSoup
-from general import get_keywords_of_single_abstract
-
 
 ROOT = 'http://www.jmlr.org/papers/'
 VERSIONS = range(1, 17)
@@ -65,7 +63,7 @@ def get_raw_abstracts():
                 publication = publication[l_index+1:r_index]
 
                 # Do not take revisions
-                if publication[-2] <> 'r':
+                if publication[-2] != 'r':
                     print 'Reading {0}'.format(publication)
 
                     abstract_url = urljoin(volume_url, 'v{0}/{1}.html'.format(v, publication))
