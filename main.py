@@ -3,6 +3,7 @@ from collections import Counter
 import itertools
 import jmlr
 import jmlr_proc
+import springer_ai
 from general import get_keywords_of_single_abstract
 
 
@@ -16,9 +17,11 @@ def main():
     # TODO: better cleaning: stemming, get rid of \n, math, non-ASCII
     jmlr_keywords = [get_keywords_of_single_abstract(abs) for abs in jmlr.maybe_pickle_abstracts()]
     jmlr_proc_keywords = [get_keywords_of_single_abstract(abs) for abs in jmlr_proc.maybe_pickle_abstracts()]
+    springer_ai_keywords = [get_keywords_of_single_abstract(abs) for abs in springer_ai.maybe_pickle_springer_ai_raw_abstracts()]
 
     keywords = list(itertools.chain(*jmlr_keywords))
     keywords += list(itertools.chain(*jmlr_proc_keywords))
+    keywords += list(itertools.chain(*springer_ai_keywords))
     all_keywords = Counter(keywords)
     for k in Counter(all_keywords).most_common(30):
         print k
