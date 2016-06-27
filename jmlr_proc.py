@@ -28,7 +28,6 @@ def maybe_pickle_raw_abstracts(force=False):
 
 def maybe_pickle_abstracts(force=False):
     set_filename = '{0}.dill'.format(FILE_CUT)
-    print set_filename
     if os.path.exists(set_filename) and not force:
         print '{0} already present - Loading dill.'.format(set_filename)
         all_abstracts = dill.load(open(set_filename, 'rb'))
