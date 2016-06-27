@@ -3,7 +3,7 @@ import dill
 from IEEE_general import get_abstracts
 
 PUBLICATION_NUMER = 34
-YEARS = range(1979, 2000) + range(2000, 2017)
+YEARS = range(1979, 2017)
 FILE_CUT = 'IEEE_TPAMI_abstracts'
 
 
