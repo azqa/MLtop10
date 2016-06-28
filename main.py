@@ -21,6 +21,14 @@ NAME['springer_ai'] = 'Springer Machine Learning'
 NAME['IEEE_TPAMI'] = 'IEEE Transactions on Pattern Analysis and Machine Intelligence'
 NAME['IEEE_NN'] = 'IEEE Transactions on Neural Networks'
 NAME['IEEE_NN_LS'] = 'IEEE Transactions on Neural Networks and Learning Systems'
+NAME['IEEE_KDA'] = 'IEEE Transactions on Knowledge and Data Engineering'
+NAME['IEEE_MI'] = 'IEEE Transactions on Medical Imaging'
+NAME['IEEE_EC'] = 'IEEE Transactions on Evolutionary Computation'
+NAME['IEEE_CIM'] = 'IEEE Computational Intelligence Magazine'
+NAME['IEEE_ASLP'] = 'IEEE Transactions on Audio, Speech, and Language Processing'
+NAME['IEEE_IS'] = 'IEEE Intelligent Systems'
+NAME['IEEE_SMCB'] = 'IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics)'
+NAME['IEEE_FS'] = 'IEEE Transactions on Fuzzy Systems'
 
 
 def get_content(func, argument=None):
@@ -31,7 +39,7 @@ def get_content(func, argument=None):
 
 
 def main():
-    # TODO: better cleaning: get rid of \n, math, non-ASCII
+    # TODO: better cleaning: get rid of \n, math, non-ASCII, some HTML, etc.
     source = dict()
     source['jmlr'] = get_content(jmlr.maybe_pickle_abstracts)
     source['jmlr_proc'] = get_content(jmlr_proc.maybe_pickle_abstracts)
@@ -39,6 +47,14 @@ def main():
     source['IEEE_TPAMI'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_TPAMI')
     source['IEEE_NN'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_NN')
     source['IEEE_NN_LS'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_NN_LS')
+    source['IEEE_KDA'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_KDA')
+    source['IEEE_MI'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_MI')
+    source['IEEE_EC'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_EC')
+    source['IEEE_CIM'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_CIM')
+    source['IEEE_ASLP'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_ASLP')
+    source['IEEE_IS'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_IS')
+    source['IEEE_SMCB'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_SMCB')
+    source['IEEE_FS'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_FS')
 
     total = 0
     for s in source.keys():
@@ -50,7 +66,7 @@ def main():
 
     keywords = list(itertools.chain(*[list(itertools.chain(*source[s])) for s in source]))
     all_keywords = Counter(keywords)
-    for k in Counter(all_keywords).most_common(30):
+    for k in Counter(all_keywords).most_common(200):
         print k
 
 if __name__ == '__main__':

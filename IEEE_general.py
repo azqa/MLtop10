@@ -12,6 +12,14 @@ SOURCES = dict()
 SOURCES['IEEE_TPAMI'] = (34, range(1979, 2017))
 SOURCES['IEEE_NN'] = (72, range(1990, 2012))
 SOURCES['IEEE_NN_LS'] = (5962385, range(2012, 2017))
+SOURCES['IEEE_KDA'] = (69, range(1989, 2017))
+SOURCES['IEEE_MI'] = (42, range(1982, 2017))
+SOURCES['IEEE_EC'] = (4235, range(1997, 2017))
+SOURCES['IEEE_CIM'] = (10207, range(2006, 2017))
+SOURCES['IEEE_ASLP'] = (10376, range(2006, 2017))
+SOURCES['IEEE_IS'] = (9670, range(2001, 2017))
+SOURCES['IEEE_SMCB'] = (3477, range(1996, 2013))
+SOURCES['IEEE_FS'] = (91, range(1993, 2017))
 
 
 def maybe_pickle_abstracts(name, force=False):
