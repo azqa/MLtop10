@@ -8,6 +8,29 @@ from bs4 import BeautifulSoup
 QUERY_PATTERN = 'http://ieeexplore.ieee.org/gateway/ipsSearch.jsp?hc=1000&pn='
 QUERY_PATTERN_YEAR = '&py='
 
+SOURCES = dict()
+SOURCES['IEEE_TPAMI'] = (34, range(1979, 2017))
+SOURCES['IEEE_NN'] = (72, range(1990, 2012))
+
+
+def maybe_pickle_abstracts(name, force=False):
+    file_name = '{0}_abstracts'.format(name)
+    publication_number, years = SOURCES[name]
+
+    set_filename = '{0}.dill'.format(file_name)
+    if os.path.exists(set_filename) and not force:
+        print '{0} already present - Loading dill.'.format(set_filename)
+        abstracts = dill.load(open(set_filename, 'rb'))
+    else:
+        abstracts = get_abstracts(publication_number, years)
+        abstracts = [abstracts[v][k] for v in years for k in abstracts[v]]
+        try:
+            print 'Dilling {0}'.format(set_filename)
+            dill.dump(abstracts, open(set_filename, 'wb'))
+        except Exception as e:
+            print('Unable to save data to', set_filename, ':', e)
+    return abstracts
+
 
 def get_abstracts(publication_number, years):
     res = defaultdict(lambda: defaultdict(set))

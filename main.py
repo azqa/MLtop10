@@ -4,8 +4,7 @@ import itertools
 import jmlr
 import jmlr_proc
 import springer_ai
-import IEEE_TPAMI
-import IEEE_NN
+import IEEE_general
 from general import get_keywords_of_single_abstract
 
 
@@ -21,8 +20,8 @@ def main():
     source['jmlr'] = [get_keywords_of_single_abstract(abs) for abs in jmlr.maybe_pickle_abstracts()]
     source['jmlr_proc'] = [get_keywords_of_single_abstract(abs) for abs in jmlr_proc.maybe_pickle_abstracts()]
     source['springer_ai'] = [get_keywords_of_single_abstract(abs) for abs in springer_ai.maybe_pickle_springer_ai_raw_abstracts()]
-    source['IEEE_TPAMI'] = [get_keywords_of_single_abstract(abs) for abs in IEEE_TPAMI.maybe_pickle_abstracts()]
-    source['IEEE_NN'] = [get_keywords_of_single_abstract(abs) for abs in IEEE_NN.maybe_pickle_abstracts()]
+    source['IEEE_TPAMI'] = [get_keywords_of_single_abstract(abs) for abs in IEEE_general.maybe_pickle_abstracts('IEEE_TPAMI')]
+    source['IEEE_NN'] = [get_keywords_of_single_abstract(abs) for abs in IEEE_general.maybe_pickle_abstracts('IEEE_NN')]
 
     print 'Number of JMLR abstracts: {0}'.format(len(source['jmlr']))
     print 'Number of JMLR Proceedings abstracts: {0}'.format(len(source['jmlr_proc']))
