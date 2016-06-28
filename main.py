@@ -22,13 +22,15 @@ def main():
     source['springer_ai'] = [get_keywords_of_single_abstract(abs) for abs in springer_ai.maybe_pickle_springer_ai_raw_abstracts()]
     source['IEEE_TPAMI'] = [get_keywords_of_single_abstract(abs) for abs in IEEE_general.maybe_pickle_abstracts('IEEE_TPAMI')]
     source['IEEE_NN'] = [get_keywords_of_single_abstract(abs) for abs in IEEE_general.maybe_pickle_abstracts('IEEE_NN')]
+    source['IEEE_NN_LS'] = [get_keywords_of_single_abstract(abs) for abs in IEEE_general.maybe_pickle_abstracts('IEEE_NN_LS')]
 
-    print 'Number of JMLR abstracts: {0}'.format(len(source['jmlr']))
-    print 'Number of JMLR Proceedings abstracts: {0}'.format(len(source['jmlr_proc']))
-    print 'Number of Springer AI abstracts: {0}'.format(len(source['springer_ai']))
-    print 'Number of IEEE TPAMI abstracts: {0}'.format(len(source['IEEE_TPAMI']))
-    print 'Number of IEEE NN abstracts: {0}'.format(len(source['IEEE_NN']))
-    print 'Total = {0}'.format(sum([len(s) for s in source.values()]))
+    total = 0
+    for s in source.keys():
+        count = len(source[s])
+        total += count
+        print 'Number of {0} abstracts: {0}'.format(s, count)
+
+    print 'Total = {0}'.format(total)
 
     keywords = list(itertools.chain(*source['jmlr']))
     keywords += list(itertools.chain(*source['jmlr_proc']))

@@ -11,6 +11,7 @@ QUERY_PATTERN_YEAR = '&py='
 SOURCES = dict()
 SOURCES['IEEE_TPAMI'] = (34, range(1979, 2017))
 SOURCES['IEEE_NN'] = (72, range(1990, 2012))
+SOURCES['IEEE_NN_LS'] = (5962385, range(2012, 2017))
 
 
 def maybe_pickle_abstracts(name, force=False):
