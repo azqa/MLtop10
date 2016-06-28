@@ -29,6 +29,8 @@ NAME['IEEE_ASLP'] = 'IEEE Transactions on Audio, Speech, and Language Processing
 NAME['IEEE_IS'] = 'IEEE Intelligent Systems'
 NAME['IEEE_SMCB'] = 'IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics)'
 NAME['IEEE_FS'] = 'IEEE Transactions on Fuzzy Systems'
+NAME['IEEE_CVPR'] = 'Conference on Computer Vision and Pattern Recognition'
+NAME['IEEE_ICCV'] = 'International Conference on Computer Vision'
 
 
 def get_content(func, argument=None):
@@ -55,6 +57,8 @@ def main():
     source['IEEE_IS'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_IS')
     source['IEEE_SMCB'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_SMCB')
     source['IEEE_FS'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_FS')
+    source['IEEE_CVPR'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_CVPR')
+    source['IEEE_ICCV'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_ICCV')
 
     total = 0
     for s in source.keys():
