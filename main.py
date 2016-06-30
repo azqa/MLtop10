@@ -7,6 +7,7 @@ import jmlr_proc
 import springer_ai
 import IEEE_general
 import elsevier
+import acm
 from general import get_keywords_of_single_abstract
 
 
@@ -43,6 +44,7 @@ DETAILS['Elsevier_PRL'] = ('Pattern Recognition Letters', 1.551)
 DETAILS['Elsevier_CSDA'] = ('Computational Statistics & Data Analysis', 1.400)
 DETAILS['Elsevier_IPM'] = ('Information Processing & Management', 1.265)
 DETAILS['Elsevier_DKE'] = ('Data & Knowledge Engineering', 1.115)
+DETAILS['ACM_JACM'] = ('Journal of the ACM', 1.39)
 
 
 def get_content(func, argument=None):
@@ -55,6 +57,7 @@ def get_content(func, argument=None):
 def main():
     # TODO: better cleaning: get rid of \n, math, non-ASCII, some HTML, etc.
     source = dict()
+
     source['jmlr'] = get_content(jmlr.maybe_pickle_abstracts)
     source['jmlr_proc'] = get_content(jmlr_proc.maybe_pickle_abstracts)
     source['springer_ai'] = get_content(springer_ai.maybe_pickle_springer_ai_raw_abstracts)
@@ -81,6 +84,7 @@ def main():
     source['Elsevier_CSDA'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_CSDA')
     source['Elsevier_IPM'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_IPM')
     source['Elsevier_DKE'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_DKE')
+    source['ACM_JACM'] = get_content(acm.maybe_pickle_abstracts)
 
     total = 0
     for s in source.keys():
