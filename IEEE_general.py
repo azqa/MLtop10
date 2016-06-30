@@ -8,7 +8,20 @@ from bs4 import BeautifulSoup
 QUERY_PATTERN = 'http://ieeexplore.ieee.org/gateway/ipsSearch.jsp?hc=1000&pn='
 QUERY_PATTERN_YEAR = '&py='
 
+# Starting 2007
 JOURNALS = dict()
+JOURNALS['IEEE_TPAMI'] = (34, range(2007, 2017))
+JOURNALS['IEEE_NN'] = (72, range(2007, 2012))
+JOURNALS['IEEE_NN_LS'] = (5962385, range(2012, 2017))
+JOURNALS['IEEE_KDA'] = (69, range(2007, 2017))
+JOURNALS['IEEE_MI'] = (42, range(2007, 2017))
+JOURNALS['IEEE_EC'] = (4235, range(2007, 2017))
+JOURNALS['IEEE_CIM'] = (10207, range(2007, 2017))
+JOURNALS['IEEE_ASLP'] = (10376, range(2007, 2017))
+JOURNALS['IEEE_IS'] = (9670, range(2007, 2017))
+JOURNALS['IEEE_SMCB'] = (3477, range(2007, 2013))
+JOURNALS['IEEE_FS'] = (91, range(2007, 2017))
+"""
 JOURNALS['IEEE_TPAMI'] = (34, range(1979, 2017))
 JOURNALS['IEEE_NN'] = (72, range(1990, 2012))
 JOURNALS['IEEE_NN_LS'] = (5962385, range(2012, 2017))
@@ -20,6 +33,7 @@ JOURNALS['IEEE_ASLP'] = (10376, range(2006, 2017))
 JOURNALS['IEEE_IS'] = (9670, range(2001, 2017))
 JOURNALS['IEEE_SMCB'] = (3477, range(1996, 2013))
 JOURNALS['IEEE_FS'] = (91, range(1993, 2017))
+"""
 
 
 PROCEEDINGS = defaultdict(lambda: defaultdict(dict))
@@ -32,7 +46,9 @@ PROCEEDINGS['IEEE_CVPR'] = {
     2010: 5521876,
     2009: 5191365,
     2008: 4558014,
-    2007: 4269955,
+    2007: 4269955
+}
+"""
     2006: 10924,
     2005: 9901,
     2004: 9183,
@@ -49,13 +65,16 @@ PROCEEDINGS['IEEE_CVPR'] = {
     1991: 340,
     1989: 247,
     1988: 206
-}
+"""
+
 PROCEEDINGS['IEEE_ICCV'] = {
     2015: 7407725,
     2013: 6750807,
     2011: 6118259,
     2009: 5453389,
-    2007: 4408818,
+    2007: 4408818
+}
+"""
     2005: 10347,
     2003: 8769,
     2001: 7460,
@@ -65,7 +84,7 @@ PROCEEDINGS['IEEE_ICCV'] = {
     1993: 3023,
     1990: 298,
     1988: 4606
-}
+"""
 
 
 def maybe_pickle_abstracts(name, force=False):

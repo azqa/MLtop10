@@ -5,6 +5,7 @@ import jmlr
 import jmlr_proc
 import springer_ai
 import IEEE_general
+#import elsevier
 from general import get_keywords_of_single_abstract
 
 
@@ -31,6 +32,17 @@ NAME['IEEE_SMCB'] = 'IEEE Transactions on Systems, Man, and Cybernetics, Part B 
 NAME['IEEE_FS'] = 'IEEE Transactions on Fuzzy Systems'
 NAME['IEEE_CVPR'] = 'Conference on Computer Vision and Pattern Recognition'
 NAME['IEEE_ICCV'] = 'International Conference on Computer Vision'
+NAME['Elsevier_KBS'] = 'Knowledge-Based Systems'
+NAME['Elsevier_NN'] = 'Neural Networks'
+NAME['Elsevier_Neuro'] = 'Neurocomputing'
+NAME['Elsevier_PR'] = 'Pattern Recognition'
+NAME['Elsevier_AI'] = 'Artificial Intelligence'
+NAME['Elsevier_CSL'] = 'Computer Speech and Language'
+NAME['Elsevier_PRL'] = 'Pattern Recognition Letters'
+NAME['Elsevier_CSDA'] = 'Computational Statistics & Data Analysis'
+NAME['Elsevier_IPM'] = 'Information Processing & Management'
+NAME['Elsevier_IPM'] = 'Data & Knowledge Engineering'
+NAME['Elsevier_CSR'] = 'Cognitive Systems Research'
 
 
 def get_content(func, argument=None):
@@ -59,6 +71,7 @@ def main():
     source['IEEE_FS'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_FS')
     source['IEEE_CVPR'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_CVPR')
     source['IEEE_ICCV'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_ICCV')
+    #source['Elsevier_PR'] = get_content(elsevier.maybe_pickle_proceeding_abstracts, 'Elsevier_PR')
 
     total = 0
     for s in source.keys():

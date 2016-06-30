@@ -6,6 +6,7 @@ from urlparse import urljoin
 from bs4 import BeautifulSoup
 
 ROOT = 'http://www.jmlr.org/proceedings/papers/'
+# Starting 2007
 VERSIONS = range(1, 52)
 FILE_RAW = 'jmlr_proc_raw_abstracts'
 FILE_CUT = 'jmlr_proc_abstracts'
