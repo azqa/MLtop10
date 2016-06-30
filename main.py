@@ -6,7 +6,7 @@ import jmlr
 import jmlr_proc
 import springer_ai
 import IEEE_general
-#import elsevier
+import elsevier
 from general import get_keywords_of_single_abstract
 
 
@@ -72,7 +72,7 @@ def main():
     source['IEEE_FS'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_FS')
     source['IEEE_CVPR'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_CVPR')
     source['IEEE_ICCV'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_ICCV')
-    #source['Elsevier_PR'] = get_content(elsevier.maybe_pickle_proceeding_abstracts, 'Elsevier_PR')
+    source['Elsevier_PR'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_PR')
 
     total = 0
     for s in source.keys():
