@@ -8,6 +8,7 @@ import springer_ai
 import IEEE_general
 import elsevier
 import acm
+import nips
 from general import get_keywords_of_single_abstract
 
 
@@ -45,6 +46,7 @@ DETAILS['Elsevier_CSDA'] = ('Computational Statistics & Data Analysis', 1.400)
 DETAILS['Elsevier_IPM'] = ('Information Processing & Management', 1.265)
 DETAILS['Elsevier_DKE'] = ('Data & Knowledge Engineering', 1.115)
 DETAILS['ACM_JACM'] = ('Journal of the ACM', 1.39)
+DETAILS['nips'] = ('Advances in Neural Information Processing Systems', 8.5437)
 
 
 def get_content(func, argument=None):
@@ -85,6 +87,7 @@ def main():
     source['Elsevier_IPM'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_IPM')
     source['Elsevier_DKE'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_DKE')
     source['ACM_JACM'] = get_content(acm.maybe_pickle_abstracts)
+    source['nips'] = get_content(nips.maybe_pickle_abstracts)
 
     total = 0
     for s in source.keys():
