@@ -19,6 +19,7 @@ sys.setdefaultencoding('utf8')
 
 
 DETAILS = dict()
+# Journals
 DETAILS['jmlr'] = ('Journal of Machine Learning Research', 2.473)
 DETAILS['jmlr_proc'] = ('Journal of Machine Learning Research Conference Proceedings', (9.1862 + 4.2905 + 2.473) / 3) # ICML + COLT + JMLR
 DETAILS['springer_ai'] = ('Springer Machine Learning', 1.889)
@@ -33,8 +34,6 @@ DETAILS['IEEE_ASLP'] = ('IEEE Transactions on Audio, Speech and Language Process
 DETAILS['IEEE_MI'] = ('IEEE Transactions on Medical Imaging', 3.390)
 DETAILS['IEEE_IS'] = ('IEEE Intelligent Systems', 2.340)
 DETAILS['IEEE_KDA'] = ('IEEE Transactions on Knowledge and Data Engineering', 2.067)
-DETAILS['IEEE_CVPR'] = ('Conference on Computer Vision and Pattern Recognition', 6.6133)
-DETAILS['IEEE_ICCV'] = ('International Conference on Computer Vision', 11.9754)
 DETAILS['Elsevier_AI'] = ('Artificial Intelligence', 3.371)
 DETAILS['Elsevier_PR'] = ('Pattern Recognition', 3.096)
 DETAILS['Elsevier_KBS'] = ('Knowledge-Based Systems', 2.947)
@@ -55,6 +54,10 @@ DETAILS['ACM_TiiS'] = ('ACM Transactions on Interactive Intelligent Systems', 0.
 DETAILS['ACM_TAP'] = ('ACM Transactions on Applied Perception', 0.65)
 DETAILS['ACM_TEAC'] = ('ACM Transactions on Economics and Computation', 0.54)
 DETAILS['ACM_KDD'] = ('Conference on Knowledge Discovery and Data Mining', 7.7269)
+
+# Conferences
+DETAILS['IEEE_CVPR'] = ('Conference on Computer Vision and Pattern Recognition', 6.6133)
+DETAILS['IEEE_ICCV'] = ('International Conference on Computer Vision', 11.9754)
 DETAILS['nips'] = ('Advances in Neural Information Processing Systems', 8.5437)
 
 
@@ -72,7 +75,7 @@ def main():
     source['jmlr'] = get_content(jmlr.maybe_pickle_abstracts)
     source['jmlr_proc'] = get_content(jmlr_proc.maybe_pickle_abstracts)
     source['springer_ai'] = get_content(springer_ai.maybe_pickle_springer_ai_raw_abstracts)
-    source['IEEE_FS'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_FS')
+    #source['IEEE_FS'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_FS')
     source['IEEE_SMCB'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_SMCB')
     source['IEEE_TPAMI'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_TPAMI')
     source['IEEE_NN_LS'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_NN_LS')
