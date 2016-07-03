@@ -95,7 +95,15 @@ def main():
     source['Elsevier_CSDA'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_CSDA')
     source['Elsevier_IPM'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_IPM')
     source['Elsevier_DKE'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_DKE')
-    source['ACM_JACM'] = get_content(acm.maybe_pickle_abstracts)
+    source['ACM_CSUR'] = get_content(acm.maybe_pickle_abstracts, 'ACM_CSUR')
+    source['ACM_JACM'] = get_content(acm.maybe_pickle_abstracts, 'ACM_JACM')
+    source['ACM_TIST'] = get_content(acm.maybe_pickle_abstracts, 'ACM_TIST')
+    source['ACM_TOIS'] = get_content(acm.maybe_pickle_abstracts, 'ACM_TOIS')
+    source['ACM_TKDD'] = get_content(acm.maybe_pickle_abstracts, 'ACM_TKDD')
+    source['ACM_TAAS'] = get_content(acm.maybe_pickle_abstracts, 'ACM_TAAS')
+    source['ACM_TiiS'] = get_content(acm.maybe_pickle_abstracts, 'ACM_TiiS')
+    source['ACM_TAP'] = get_content(acm.maybe_pickle_abstracts, 'ACM_TAP')
+    source['ACM_TEAC'] = get_content(acm.maybe_pickle_abstracts, 'ACM_TEAC')
     source['nips'] = get_content(nips.maybe_pickle_abstracts)
 
     total = 0
