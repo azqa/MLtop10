@@ -71,9 +71,8 @@ def get_content(func, argument=None):
 def main():
     # TODO: better cleaning: get rid of \n, math, non-ASCII, some HTML, etc.
     source = dict()
-
+    # Journals
     source['jmlr'] = get_content(jmlr.maybe_pickle_abstracts)
-    source['jmlr_proc'] = get_content(jmlr_proc.maybe_pickle_abstracts)
     source['springer_ai'] = get_content(springer_ai.maybe_pickle_springer_ai_raw_abstracts)
     #source['IEEE_FS'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_FS')
     source['IEEE_SMCB'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_SMCB')
@@ -86,8 +85,6 @@ def main():
     source['IEEE_MI'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_MI')
     source['IEEE_IS'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_IS')
     source['IEEE_KDA'] = get_content(IEEE_general.maybe_pickle_abstracts, 'IEEE_KDA')
-    source['IEEE_CVPR'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_CVPR')
-    source['IEEE_ICCV'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_ICCV')
     source['Elsevier_AI'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_AI')
     source['Elsevier_PR'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_PR')
     source['Elsevier_KBS'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_KBS')
@@ -107,6 +104,11 @@ def main():
     source['ACM_TiiS'] = get_content(acm.maybe_pickle_abstracts, 'ACM_TiiS')
     source['ACM_TAP'] = get_content(acm.maybe_pickle_abstracts, 'ACM_TAP')
     source['ACM_TEAC'] = get_content(acm.maybe_pickle_abstracts, 'ACM_TEAC')
+
+    # Conferences
+    source['jmlr_proc'] = get_content(jmlr_proc.maybe_pickle_abstracts)
+    source['IEEE_CVPR'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_CVPR')
+    source['IEEE_ICCV'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_ICCV')
     source['nips'] = get_content(nips.maybe_pickle_abstracts)
 
     total = 0
