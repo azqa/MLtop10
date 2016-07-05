@@ -95,6 +95,7 @@ def main():
     source['Elsevier_CSDA'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_CSDA')
     source['Elsevier_IPM'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_IPM')
     source['Elsevier_DKE'] = get_content(elsevier.maybe_pickle_abstracts, 'Elsevier_DKE')
+
     source['ACM_CSUR'] = get_content(acm.maybe_pickle_abstracts, 'ACM_CSUR')
     source['ACM_JACM'] = get_content(acm.maybe_pickle_abstracts, 'ACM_JACM')
     source['ACM_TIST'] = get_content(acm.maybe_pickle_abstracts, 'ACM_TIST')
@@ -109,7 +110,10 @@ def main():
     source['jmlr_proc'] = get_content(jmlr_proc.maybe_pickle_abstracts)
     source['IEEE_CVPR'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_CVPR')
     source['IEEE_ICCV'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_ICCV')
+
+
     source['nips'] = get_content(nips.maybe_pickle_abstracts)
+    source['ACM_KDD'] = get_content(acm.maybe_pickle_abstracts,'ACM_KDD')
 
     total = 0
     for s in source.keys():
