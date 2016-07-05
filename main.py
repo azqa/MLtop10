@@ -52,13 +52,13 @@ DETAILS['ACM_TAAS'] = ('ACM Transactions on Autonomous and Adaptive Systems', 0.
 DETAILS['ACM_TiiS'] = ('ACM Transactions on Interactive Intelligent Systems', 0.8)
 DETAILS['ACM_TAP'] = ('ACM Transactions on Applied Perception', 0.65)
 DETAILS['ACM_TEAC'] = ('ACM Transactions on Economics and Computation', 0.54)
-DETAILS['ACM_KDD'] = ('Conference on Knowledge Discovery and Data Mining', 7.7269)
 
 # Conferences
 DETAILS['jmlr_proc'] = ('Journal of Machine Learning Research Conference Proceedings', (9.1862 + 4.2905 + 2.473) / 3) # ICML + COLT + JMLR
 DETAILS['IEEE_CVPR'] = ('Conference on Computer Vision and Pattern Recognition', 6.6133)
 DETAILS['IEEE_ICCV'] = ('International Conference on Computer Vision', 11.9754)
 DETAILS['nips'] = ('Advances in Neural Information Processing Systems', 8.5437)
+DETAILS['ACM_KDD'] = ('Conference on Knowledge Discovery and Data Mining', 7.7269)
 
 
 def get_content(func, argument=None):
@@ -110,8 +110,6 @@ def main():
     source['jmlr_proc'] = get_content(jmlr_proc.maybe_pickle_abstracts)
     source['IEEE_CVPR'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_CVPR')
     source['IEEE_ICCV'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_ICCV')
-
-
     source['nips'] = get_content(nips.maybe_pickle_abstracts)
     source['ACM_KDD'] = get_content(acm.maybe_pickle_abstracts,'ACM_KDD')
 
