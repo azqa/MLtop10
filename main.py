@@ -57,6 +57,7 @@ DETAILS['ACM_TEAC'] = ('ACM Transactions on Economics and Computation', 0.54)
 DETAILS['jmlr_proc'] = ('Journal of Machine Learning Research Conference Proceedings', (9.1862 + 4.2905 + 2.473) / 3) # ICML + COLT + JMLR
 DETAILS['IEEE_CVPR'] = ('Conference on Computer Vision and Pattern Recognition', 6.6133)
 DETAILS['IEEE_ICCV'] = ('International Conference on Computer Vision', 11.9754)
+DETAILS['IEEE_ICDM'] = ('International Conference on Data Mining', 2.1370)
 DETAILS['nips'] = ('Advances in Neural Information Processing Systems', 8.5437)
 DETAILS['ACM_KDD'] = ('Conference on Knowledge Discovery and Data Mining', 7.7269)
 
@@ -110,6 +111,7 @@ def main():
     source['jmlr_proc'] = get_content(jmlr_proc.maybe_pickle_abstracts)
     source['IEEE_CVPR'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_CVPR')
     source['IEEE_ICCV'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_ICCV')
+    source['IEEE_ICDM'] = get_content(IEEE_general.maybe_pickle_proceeding_abstracts, 'IEEE_ICDM')
     source['nips'] = get_content(nips.maybe_pickle_abstracts)
     source['ACM_KDD'] = get_content(acm.maybe_pickle_abstracts,'ACM_KDD')
 
@@ -133,7 +135,7 @@ def main():
         for w in counters[s]:
             counters[s][w] *= impact
 
-    for k in reduce(add, counters.values(), Counter()).most_common(200):
+    for k in reduce(add, counters.values(), Counter()).most_common(500):
         print k
 
 if __name__ == '__main__':
