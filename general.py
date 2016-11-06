@@ -1,12 +1,25 @@
 # git clone https://github.com/zelandiya/RAKE-tutorial
 import rake
 import operator
+import nltk
 from nltk.stem import *
+from nltk.tokenize import RegexpTokenizer
 
 STOPPATH = 'SmartStoplist.txt'
+STOPWORDS = rake.load_stop_words(STOPPATH)
 
 
-def get_keywords_of_single_abstract(abstract):
+def get_keywords_of_single_abstract_grams(abstract):
+    abstract = abstract.lower()
+    tokenizer = RegexpTokenizer(r'\w+')
+    tokens = tokenizer.tokenize(abstract)
+    tokens = [t for t in tokens if t not in STOPWORDS]
+    bigrams = nltk.bigrams(tokens)
+    trigrams = nltk.trigrams(tokens)
+    return list(tokens) + list([' '.join(x) for x in bigrams]) + list([' '.join(x) for x in trigrams])
+
+
+def get_keywords_of_single_abstract_RAKE(abstract):
     sentence_list = rake.split_sentences(abstract)
     stopword_pattern = rake.build_stop_word_regex(STOPPATH)
     phrase_list = rake.generate_candidate_keywords(sentence_list, stopword_pattern)

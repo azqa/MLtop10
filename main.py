@@ -9,7 +9,10 @@ import IEEE_general
 import elsevier
 import acm
 import nips
-from general import get_keywords_of_single_abstract
+from general import get_keywords_of_single_abstract_RAKE, get_keywords_of_single_abstract_grams
+
+
+METHOD = get_keywords_of_single_abstract_grams
 
 
 # Avoids some strange unicode error...
@@ -64,9 +67,9 @@ DETAILS['ACM_KDD'] = ('Conference on Knowledge Discovery and Data Mining', 7.726
 
 def get_content(func, argument=None):
     if argument:
-        return [get_keywords_of_single_abstract(abs) for abs in func(argument)]
+        return [METHOD(abs) for abs in func(argument)]
     else:
-        return [get_keywords_of_single_abstract(abs) for abs in func()]
+        return [METHOD(abs) for abs in func()]
 
 
 def main():
@@ -135,7 +138,7 @@ def main():
         for w in counters[s]:
             counters[s][w] *= impact
 
-    for k in reduce(add, counters.values(), Counter()).most_common(500):
+    for k in reduce(add, counters.values(), Counter()):#.most_common(500):
         print k
 
 if __name__ == '__main__':
