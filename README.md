@@ -1,5 +1,11 @@
-# The Top 10 Topics in Machine Learning Revisited: A Quantitative Meta-Study
+# The Top 10 Topics in Security venues
 
-Source code of results published in:
+This repository is work in progress. Currently, it scrapes the abstracts from the following conference websites:
 
-`P. Glauner, M. Du, V. Paraschiv, A. Boytsov, I. Lopez Andrade, J. Meira, P. Valtchev and R. State, "The Top 10 Topics in Machine Learning Revisited: A Quantitative Meta-Study", Proceedings of the 25th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning (ESANN 2017), Bruges, Belgium, 2017.`
+- DIMVA (2010-2019)
+- ESORICS (2010-2019)
+- IEEE S&P (2010-2019)
+
+## Usage
+
+`python main.py`
